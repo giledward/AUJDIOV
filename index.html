@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AUJDIOV | Desktop Audio Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="visualizer" aria-label="Audio visualization canvas"></canvas>
+
+    <main class="hud">
+      <section class="hero">
+        <p class="eyebrow">AUJDIOV / Desktop music wallpaper prototype</p>
+        <h1>See the music while you play.</h1>
+        <p>
+          Load a song, use your mic, or capture browser audio. The end goal is a desktop background that reacts to whatever you are listening to.
+        </p>
+      </section>
+
+      <section class="controls" aria-label="Visualizer controls">
+        <div class="status">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">Choose an audio source to start.</span>
+        </div>
+
+        <div class="button-row">
+          <label class="button file-button">
+            Load audio
+            <input id="audioFile" type="file" accept="audio/*" />
+          </label>
+          <button id="micButton" class="button" type="button">Use mic</button>
+          <button id="captureButton" class="button" type="button">Capture tab</button>
+          <button id="playButton" class="button" type="button" disabled>Play / pause</button>
+        </div>
+
+        <audio id="player" controls></audio>
+
+        <div class="settings">
+          <label>
+            Mode
+            <select id="modeSelect">
+              <option value="nebula">Nebula waves</option>
+              <option value="bars">Cyber bars</option>
+              <option value="particles">Particle field</option>
+              <option value="ring">Bass ring</option>
+            </select>
+          </label>
+
+          <label>
+            Vibe
+            <select id="paletteSelect">
+              <option value="solana">Solana</option>
+              <option value="fire">Fire</option>
+              <option value="ocean">Ocean</option>
+              <option value="mono">Clean white</option>
+            </select>
+          </label>
+
+          <label>
+            Intensity
+            <input id="intensitySlider" type="range" min="0.5" max="3" value="1.4" step="0.1" />
+          </label>
+
+          <label>
+            Smoothness
+            <input id="smoothingSlider" type="range" min="0" max="0.95" value="0.82" step="0.01" />
+          </label>
+        </div>
+
+        <p class="hint">
+          For YouTube or Spotify Web, press Capture tab and enable audio sharing in the browser picker.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
